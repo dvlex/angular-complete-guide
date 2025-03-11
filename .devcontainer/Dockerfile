@@ -1,5 +1,5 @@
 # Base image
-FROM node:18
+FROM --platform=linux/amd64 node:18
 
 # Install Angular CLI
 RUN npm install -g @angular/cli
@@ -21,6 +21,13 @@ SHELL ["/bin/zsh", "-c"]
 # set the xiong-chiamiov-plus theme
 RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="xiong-chiamiov-plus"/' ~/.zshrc
 
+# Install Chrome dependencies
+# RUN apt-get install -y wget gnupg --no-install-recommends \
+#    && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+#    && sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+#    && apt-get update && apt-get install -y google-chrome-stable --no-install-recommends \
+#    && rm -rf /var/lib/apt/lists/*
+
 # Set the working directory
 WORKDIR /workspace
 
@@ -29,6 +36,7 @@ COPY . /workspace
 
 # Expose port 4200 for Angular
 EXPOSE 4200
+EXPOSE 9876
 
 # Set Zsh as the default shell
 CMD ["zsh"]

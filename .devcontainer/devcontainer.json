@@ -10,7 +10,8 @@
             },
             "extensions": [
                 "Angular.ng-template",
-                "johnpapa.angular-essentials"
+                "johnpapa.angular-essentials",
+                "ms-azuretools.vscode-docker"
             ]
         }
     }
