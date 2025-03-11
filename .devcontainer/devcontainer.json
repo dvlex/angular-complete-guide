@@ -1,0 +1,19 @@
+{
+    "name": "Angular 18 DevContainer",
+    "dockerFile": "Dockerfile",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-vscode.vscode-typescript-tslint-plugin",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "angular.ng-template"
+            ]
+        }
+    },
+    "postCreateCommand": "npm install"
+}
+  
