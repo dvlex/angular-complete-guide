@@ -1,19 +1,17 @@
 {
-    "name": "Angular 18 DevContainer",
-    "dockerFile": "Dockerfile",
+    "name": "Angular Dev Container",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "angular",
+    "workspaceFolder": "/workspace",
     "customizations": {
         "vscode": {
             "settings": {
-                "terminal.integrated.shell.linux": "/bin/bash"
+                "terminal.integrated.shell.linux": "/bin/zsh"
             },
             "extensions": [
-                "ms-vscode.vscode-typescript-tslint-plugin",
-                "esbenp.prettier-vscode",
-                "dbaeumer.vscode-eslint",
-                "angular.ng-template"
+                "Angular.ng-template",
+                "johnpapa.angular-essentials"
             ]
         }
-    },
-    "postCreateCommand": "npm install"
+    }
 }
-  

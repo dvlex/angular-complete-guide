@@ -1,23 +1,34 @@
-# Use the official Node.js image.
+# Base image
 FROM node:18
 
-# Set the working directory in the container.
+# Install Angular CLI
+RUN npm install -g @angular/cli
+
+# Install Zsh and Oh My Zsh
+RUN apt-get update && apt-get install -y zsh \
+    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Install Oh My Zsh plugins
+RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
+    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# Enable Oh My Zsh plugins in .zshrc
+RUN sed -i 's/plugins=(git)/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' ~/.zshrc
+
+# Set Zsh as the default shell
+SHELL ["/bin/zsh", "-c"]
+
+# set the xiong-chiamiov-plus theme
+RUN sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="xiong-chiamiov-plus"/' ~/.zshrc
+
+# Set the working directory
 WORKDIR /workspace
 
-# Install Angular CLI globally.
-RUN npm install -g @angular/cli@18
+# Copy project files from the context of the build
+COPY . /workspace
 
-# Install Zsh and Oh My Zsh.
-RUN apt-get update && \
-    apt-get install -y zsh && \
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
-    chsh -s $(which zsh)
-
-# Set the Oh My Zsh theme to "xiong-chiamiov-plus".
-RUN sed -i 's/ZSH_THEME=".*"/ZSH_THEME="xiong-chiamiov-plus"/' ~/.zshrc
-
-# Copy the rest of the application code.
-COPY . .
-
-# Expose port 4200 for the Angular dev server.
+# Expose port 4200 for Angular
 EXPOSE 4200
+
+# Set Zsh as the default shell
+CMD ["zsh"]
