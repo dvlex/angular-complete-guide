@@ -12,7 +12,8 @@
                 "Angular.ng-template",
                 "johnpapa.angular-essentials",
                 "ms-azuretools.vscode-docker",
-                "steoates.autoimport"
+                "steoates.autoimport",
+                "bradlc.vscode-tailwindcss"
             ]
         }
     }
