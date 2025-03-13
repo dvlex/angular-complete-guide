@@ -2,7 +2,7 @@
   <button (click)="onSelectUser()">
     <img
       [src]="imagePath()"
-      [alt]="'Photo of ' + user.name"
+      [alt]="'Photo of ' + user().name"
     />
     <span>{{ user().name }}</span>
   </button>
