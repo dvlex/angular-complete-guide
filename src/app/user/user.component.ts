@@ -11,10 +11,6 @@ import { User } from '../models/user.model';
 export class UserComponent {
   @Input({ required: true }) user!: User;
   @Output() select = new EventEmitter<User>();
-  // select = output<User>(); 
-  /* This is the same as the line above, is used when we use input
-  and output decorators. */
-
 
   get imagePath() {
     return `assets/users/${this.user.avatar}`;
