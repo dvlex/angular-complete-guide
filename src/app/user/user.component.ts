@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, Input, input } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Component({
@@ -9,11 +9,11 @@ import { User } from '../models/user.model';
   styleUrl: './user.component.scss',
 })
 export class UserComponent {
-  user = input.required<User>();
+  @Input({ required: true }) user!: User;
 
-  imagePath = computed(() => {
-    return `assets/users/${this.user().avatar}`;
-  });
+  get imagePath() {
+    return `assets/users${this.user.avatar}`;
+  }
 
   onSelectUser() {
 
