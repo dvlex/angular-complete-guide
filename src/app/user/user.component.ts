@@ -1,4 +1,4 @@
-import { Component, computed, Input, input } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, output, Output } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Component({
@@ -10,12 +10,17 @@ import { User } from '../models/user.model';
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+  @Output() select = new EventEmitter<User>();
+  // select = output<User>(); 
+  /* This is the same as the line above, is used when we use input
+  and output decorators. */
+
 
   get imagePath() {
-    return `assets/users${this.user.avatar}`;
+    return `assets/users/${this.user.avatar}`;
   }
 
   onSelectUser() {
-
+    this.select.emit(this.user);
   }
 }

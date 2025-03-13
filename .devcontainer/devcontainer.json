@@ -13,7 +13,12 @@
                 "johnpapa.angular-essentials",
                 "ms-azuretools.vscode-docker",
                 "steoates.autoimport",
-                "bradlc.vscode-tailwindcss"
+                "bradlc.vscode-tailwindcss",
+                "johnpapa.Angular2",
+                "davidbabel.vscode-simpler-icons",
+                "74th.monokai-charcoal-high-contrast",
+                "oderwat.indent-rainbow",
+                "alexiv.vscode-angular2-files"
             ]
         }
     }

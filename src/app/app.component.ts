@@ -5,6 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { ReactiveFormsModule } from '@angular/forms';
+import { User } from './models/user.model';
 
 @Component({
   selector: 'app-root',
@@ -21,4 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  onSelectUser(user: User) {
+    console.log('User selected', user);
+  }
 }
