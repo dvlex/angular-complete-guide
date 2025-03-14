@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TaskComponent } from "../task/task.component";
 import { DUMMY_TASKS } from '../dummy-tasks';
 import { User } from '../models/user.model';
+import { Task } from '../models/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -18,4 +19,7 @@ export class TasksComponent {
     return this.tasks.filter(task => task.userId === this.user.id);
   }
   
+  onCompleteTask(task: Task) {
+    this.tasks = this.tasks.filter(t => t !== task);
+  }
 }
