@@ -8,8 +8,8 @@
     }
   </ul>
 
-  @if (userName) {
-    <app-tasks [task]="userName"></app-tasks>
+  @if (user) {
+    <app-tasks [user]="user"></app-tasks>
   } @else {
     <p id="fallback">No user selected</p>
   }
