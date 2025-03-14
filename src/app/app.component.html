@@ -1,11 +1,18 @@
 <app-header></app-header>
-<main>    
-    <ul id="users">
-        <li *ngFor="let user of users">
-            <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
-        </li>
-    </ul>
+<main>
+  <ul id="users">
+    @for (user of users; track $index) {
+      <li>
+        <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
+      </li>
+    }
+  </ul>
+
+  @if (userName) {
+    <app-tasks [task]="userName"></app-tasks>
+  } @else {
+    <p id="fallback">No user selected</p>
+  }
 </main>
 
-<app-tasks [task]="userName"></app-tasks>
 <router-outlet />
