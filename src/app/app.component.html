@@ -3,13 +3,13 @@
   <ul id="users">
     @for (user of users; track $index) {
       <li>
-        <app-user [user]="user" (select)="onSelectUser($event)"></app-user>
+        <app-user [isSelected]="user === this.userSelected" [user]="user" (select)="onSelectUser($event)"></app-user>
       </li>
     }
   </ul>
 
-  @if (user) {
-    <app-tasks [user]="user"></app-tasks>
+  @if (userSelected) {
+    <app-tasks [user]="userSelected"></app-tasks>
   } @else {
     <p id="fallback">No user selected</p>
   }

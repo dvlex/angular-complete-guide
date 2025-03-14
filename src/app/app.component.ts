@@ -24,10 +24,9 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  user!: User;
+  userSelected!: User;
 
   onSelectUser(user: User) {
-    console.log('User selected', user);
-    this.user = user;
+    this.userSelected = user;
   }
 }
