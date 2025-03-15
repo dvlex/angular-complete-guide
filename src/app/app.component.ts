@@ -37,7 +37,7 @@ export class AppComponent {
       width: '500px',
       backdropClass: 'dark-backdrop',
       data: {
-        user: this.userSelected
+        user: this.userSelected,
       },
     });
   }

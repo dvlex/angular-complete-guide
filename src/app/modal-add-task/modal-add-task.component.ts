@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -10,4 +11,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ModalAddTaskComponent {
   constructor(public _matDialogRef: MatDialogRef<ModalAddTaskComponent>) {}
+
+  currentDate = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
+
+  task = new FormControl('');
 }

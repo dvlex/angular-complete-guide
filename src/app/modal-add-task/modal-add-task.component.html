@@ -1,1 +1,17 @@
-<p>modal-add-task works!</p>
+<div class="modal">
+  <h2 class="modal_header">Add task</h2>
+  <form action="">
+    <p class="m-2 flex flex-row justify-between">
+      <label class="me-2" for="">Title:</label>
+      <input class="w-3/4" type="text" />
+    </p>
+    <p class="m-2 flex flex-row justify-between">
+      <label class="me-2" for="">Sumary:</label>
+      <textarea class="w-3/4" id="w3review" name="w3review" rows="4" cols="50"></textarea>
+    </p>
+    <p class="m-2 flex flex-row justify-between">
+      <label class="me-2" for="">Due Date:</label>
+      <input class="w-3/4" type="date" [value]="currentDate" [min]="currentDate" />
+    </p>
+  </form>
+</div>

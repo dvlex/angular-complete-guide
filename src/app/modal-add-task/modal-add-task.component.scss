@@ -1,0 +1,17 @@
+.modal {
+    @apply bg-white flex flex-col p-3 rounded-lg shadow-lg;
+    color: #1f1d22
+}
+
+.modal_header {
+    @apply text-3xl;
+    color: #1f1d22;
+}
+
+input {
+    @apply border border-gray-300 p-2 rounded-lg;
+}
+
+textarea {
+    @apply border border-gray-300 p-2 rounded-lg;
+}
